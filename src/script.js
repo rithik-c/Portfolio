@@ -170,9 +170,24 @@ document.getElementById("toolkit").addEventListener("click", () => {
   document.getElementById("resume").click();
 });
 
-document.getElementById("sidebar-info").addEventListener("click", () => {
-  document.getElementById("info_more-btn").click();
-});
+
+function handleMediaQueryChange(e) {
+  if (e.matches) {
+      // If media query matches (min-width: 1250px)
+      document.getElementById("sidebar-info").addEventListener("click", () => {
+          document.getElementById("info_more-btn").click();
+      });
+  }
+}
+
+// Create a MediaQueryList object
+const mediaQuery = window.matchMedia("(max-width: 1250px)");
+
+// Add a listener that will run when the media query status changes
+mediaQuery.addListener(handleMediaQueryChange);
+
+// Run the function initially to set up the event listener based on the current state
+handleMediaQueryChange(mediaQuery);
 
 
 /**
