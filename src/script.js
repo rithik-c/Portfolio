@@ -166,9 +166,12 @@ for (let i = 0; i < navigationLinks.length; i++) {
     }
   });
 }
-
 document.getElementById("toolkit").addEventListener("click", () => {
   document.getElementById("resume").click();
+});
+
+document.getElementById("sidebar-info").addEventListener("click", () => {
+  document.getElementById("info_more-btn").click();
 });
 
 
@@ -187,10 +190,24 @@ const scene = new THREE.Scene();
 /**
  * Models
  */
+
+const manager = new THREE.LoadingManager();
+manager.onStart = function (url, itemsLoaded, itemsTotal) {
+  console.log('Started loading file: ' + url + '.\nLoaded ' + itemsLoaded + ' of ' + itemsTotal + ' files.');
+};
+manager.onLoad = function () {
+  console.log('All assets loaded.');
+  // Hide loader and initialize the scene here
+  fadePreload()
+};
+manager.onError = function (url) {
+  console.log('There was an error loading ' + url);
+};
+
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath("/draco/");
 
-const gltfLoader = new GLTFLoader();
+const gltfLoader = new GLTFLoader(manager);
 gltfLoader.setDRACOLoader(dracoLoader);
 
 let mixer = null;
@@ -201,6 +218,7 @@ gltfLoader.load("./models/desktop_pc/new_scene.glb", (gltf) => {
   (xhr) => {
     // console.log((xhr.loaded / xhr.total * 100) + '% loaded');
     // Loading screen or progress bar here
+    // fadePreload()
   },
   (error) => {
     console.error('An error happened', error);
@@ -309,7 +327,7 @@ const tick = () => {
 
   // Render
   renderer.render(scene, camera);
-  fadePreload()
+  // fadePreload()
 
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);

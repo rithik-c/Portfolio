@@ -874,7 +874,7 @@ textarea.form-input::-webkit-resizer {
   width: 100vw;
   height: 100vh;
   background: rgb(11, 11, 11);
-  z-index: 2;
+  z-index: 6;
   transition: opacity 1s ease;
   overflow: hidden;
 }
