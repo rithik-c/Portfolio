@@ -477,10 +477,37 @@ main {
 }
 
 .three-model {
-  /* padding: 0 0 0 -30px; */
-  /* margin: 0 0 20px 0; */
+  position: relative;
   height: 45vh;
   z-index: 0;
+}
+
+#mobile-p2 {
+  display: none;
+}
+
+#pc-p2 {
+  display: none;
+}
+
+.centered-image {
+  width: 10%;
+  height: auto;
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  z-index: -1;
+}
+
+.fade-in-out {
+  animation: fadeInOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeInOut {
+  0%, 100% { opacity: 0; }
+  23.08%, 76.92% { opacity: 1; }
 }
 
 .service {

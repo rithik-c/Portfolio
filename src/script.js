@@ -191,13 +191,151 @@ handleMediaQueryChange(mediaQuery);
 
 
 /**
+ * Constants
+ */
+const mainContent = document.querySelector('.three-model');
+
+// Initial sizes
+const sizes = {
+  width: mainContent.clientWidth,
+  height: mainContent.clientHeight
+};
+
+/**
+ * Three.js Media Queries
+ */
+let finalPosition;
+let cameraPosX;
+let cameraPosY;
+let loaded = false
+let isMediaQueryMatched = false;
+const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 0.1, 100);
+const canvas = document.querySelector("canvas.webgl");
+const controls = new OrbitControls(camera, canvas);
+
+const largeMedia = window.matchMedia("(min-width: 1024px)");
+const mediumMedia = window.matchMedia("(min-width: 768px) and (max-width: 1023px)");
+const smallMedia = window.matchMedia("(min-width: 580px) and (max-width: 767px)");
+const tinyMedia = window.matchMedia("(max-width: 579px)");
+
+var pcParagraph = document.getElementById('pc-p2');
+var mobileParagraph = document.getElementById('mobile-p2');
+var serviceSection = document.getElementById('service');
+var threeModel = document.getElementById('three-model');
+
+function handleLargeMediaQuery(e) {
+  if (e.matches) {
+    finalPosition = new THREE.Vector3(24, -15.2, 1.5);
+    camera.position.set(24, -15.2, 1.5);
+    isMediaQueryMatched = true;
+    cameraPosX = 24;
+    cameraPosY = 23;
+    if (loaded) tick();
+    controls.target.y = 0.9;
+
+    pcParagraph.style.display = 'block';
+    mobileParagraph.style.display = 'none';
+    serviceSection.style.top = '-5vh';
+    threeModel.style.height = '45vh';
+    // console.log("large");
+  }
+}
+
+function handleMediumMediaQuery(e) {
+  if (e.matches) {
+    finalPosition = new THREE.Vector3(25.4, -15.2, 1.5);
+    camera.position.copy(finalPosition);
+    isMediaQueryMatched = true;
+    cameraPosX = 27;
+    cameraPosY = 26;
+    if (loaded) tick();
+    controls.target.y = 0.9;
+
+    pcParagraph.style.display = 'block';
+    mobileParagraph.style.display = 'none';
+    serviceSection.style.top = '-5vh';
+    threeModel.style.height = '35vh';
+    // console.log("medium");
+  }
+}
+
+function handleSmallMediaQuery(e) {
+  if (e.matches) {
+    finalPosition = new THREE.Vector3(23, -15.2, 1.5);
+    camera.position.copy(finalPosition);
+    isMediaQueryMatched = true;
+    cameraPosX = 23;
+    cameraPosY = 22;
+    if (loaded) tick();
+    
+    setTimeout(() => {
+      controls.target.y = 1.3;
+      controls.update();
+    }, 100);
+
+    pcParagraph.style.display = 'none';
+    mobileParagraph.style.display = 'block';
+    serviceSection.style.top = '30px';
+    threeModel.style.height = '25vh';
+    // console.log("small");
+  }
+}
+
+function handleTinyMediaQuery(e) {
+  if (e.matches) {
+    finalPosition = new THREE.Vector3(23, -15.2, 1.5);
+    camera.position.copy(finalPosition);
+    isMediaQueryMatched = true;
+    cameraPosX = 23;
+    cameraPosY = 23;
+    if (loaded) tick();
+
+    setTimeout(() => {
+      controls.target.y = 1.3;
+      controls.update();
+    }, 100);
+
+    pcParagraph.style.display = 'none';
+    mobileParagraph.style.display = 'block';
+    serviceSection.style.top = '30px';
+    threeModel.style.height = '25vh';
+    // console.log("tiny");
+  }
+}
+
+largeMedia.addListener(handleLargeMediaQuery);
+mediumMedia.addListener(handleMediumMediaQuery);
+smallMedia.addListener(handleSmallMediaQuery);
+tinyMedia.addListener(handleTinyMediaQuery);
+
+// Invoke handlers directly to set initial state
+handleLargeMediaQuery(largeMedia);
+handleMediumMediaQuery(mediumMedia);
+handleSmallMediaQuery(smallMedia);
+handleTinyMediaQuery(tinyMedia);
+
+
+
+const image = document.getElementById('center-image');
+
+function startAnimation() {
+  image.style.zIndex = '0';
+  image.classList.add('fade-in-out');
+}
+
+image.addEventListener('animationend', () => {
+  image.style.zIndex = '-1';
+});
+
+
+/**
  * Base
  */
 // Debug
 // const gui = new GUI();
 
 // Canvas
-const canvas = document.querySelector("canvas.webgl");
+// Moved to Three.js Media Queries
 
 // Scene
 const scene = new THREE.Scene();
@@ -212,7 +350,6 @@ manager.onStart = function (url, itemsLoaded, itemsTotal) {
 };
 manager.onLoad = function () {
   console.log('All assets loaded.');
-  // Hide loader and initialize the scene here
   fadePreload()
 };
 manager.onError = function (url) {
@@ -262,15 +399,10 @@ scene.add(pointLight);
 /**
  * Sizes
  */
-const mainContent = document.querySelector('.three-model');
-
-// Initial sizes
-const sizes = {
-  width: mainContent.clientWidth,
-  height: mainContent.clientHeight
-};
+// Moved to Three.js Media Queries
 
 // Resize event listener
+isMediaQueryMatched = false;
 window.addEventListener('resize', () => {
   // Update sizes
   sizes.width = mainContent.clientWidth;
@@ -279,23 +411,30 @@ window.addEventListener('resize', () => {
   // Update camera
   camera.aspect = sizes.width / sizes.height;
   camera.updateProjectionMatrix();
+  
+  // Check if a media query match has occurred and update camera position
+  if (isMediaQueryMatched) {
+    // camera.position.copy(finalPosition);
+    isMediaQueryMatched = false; // Reset the flag
+  }
 
   // Update renderer
-  renderer.setSize(sizes.width, sizes.height);
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(sizes.width, sizes.height);
+  renderer.render(scene, camera);
 });
+
+
 
 /**
  * Camera
  */
 // Base camera
-const camera = new THREE.PerspectiveCamera(25, sizes.width / sizes.height, 0.1, 100);
-camera.position.set(16.4, -15.2, 1.5);
+// Moved to Three.js Media Queries
 scene.add(camera);
 
 
 // Controls
-const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
 controls.enableZoom = false; // Disables zooming
 controls.maxPolarAngle = Math.PI / 2.3; // Limit the polar angle
@@ -322,11 +461,37 @@ renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
+
+/**
+ * Rotation Animation Setup
+ */
+let isRotating = false;
+let rotationDuration = 5000; // Duration of the rotation in milliseconds
+let rotationStartTime;
+let minRotations = 0;
+
+function startModelRotation() {
+    isRotating = true;
+    rotationStartTime = Date.now();
+}
+
+function easeOutQuad(t) {
+  const scale = 0.8; // Scale down the range to 0.8 (1 - 0.2)
+  let result = 0.2 + (scale * (3 * t) * (1 - t))
+  return result < 0.4 ? 0.4 : result;
+  // return 0.1;
+}
+
 /**
  * Animate
  */
 const clock = new THREE.Clock();
 let previousTime = 0;
+
+// let finalPosition = new THREE.Vector3(16.4, -15.2, 1.5);
+let targetAngle = Math.atan2(finalPosition.z, finalPosition.x); // Calculate the target angle
+let isCloseToTarget = false;
+let angle = 0;
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
@@ -334,7 +499,33 @@ const tick = () => {
   previousTime = elapsedTime;
 
   if (mixer) {
-    mixer.update(deltaTime);
+      mixer.update(deltaTime);
+  }
+
+  if (isRotating && loaded) {
+      let elapsedRotationTime = Date.now() - rotationStartTime;
+      let rotationFraction = elapsedRotationTime / rotationDuration;
+
+      let easedSpeed = easeOutQuad(rotationFraction);
+
+      let deltaAngle = easedSpeed * deltaTime * 5; // Adjust '5' to control max speed
+      angle += deltaAngle;
+
+      // const angle = easedFraction * Math.PI * 5;
+      camera.position.x = cameraPosX * Math.sin(angle); // Adjust radius to fit your model
+      camera.position.z = cameraPosY * Math.cos(angle);
+      camera.lookAt(scene.position); // Assuming the model is at the scene's origin
+
+      let currentAngle = Math.atan2(camera.position.z, camera.position.x);
+      isCloseToTarget = Math.abs(currentAngle - targetAngle) < 0.025; // Check if close to target angle
+
+      if (isCloseToTarget) {
+        minRotations += 1;
+        if (minRotations == 1) {
+          isRotating = false;
+          startAnimation();
+        }
+      }
   }
 
   // Update controls
@@ -342,14 +533,17 @@ const tick = () => {
 
   // Render
   renderer.render(scene, camera);
-  // fadePreload()
+  if (!loaded) setTimeout(2000);
+  loaded = true;
 
   // Call tick again on the next frame
   window.requestAnimationFrame(tick);
 };
+
 tick();
 
 function fadePreload() {
+
   // Wait for the full load plus an additional delay
   setTimeout(function() {
       var overlayDiv = document.querySelector('.preload-page');
@@ -362,9 +556,15 @@ function fadePreload() {
           // Now hide the div
           overlayDiv.style.display = 'none';
 
-          // Enable scrolling on the body
-          document.body.style.overflow = 'visible';
-      }, 1000); // This should match the duration of the opacity transition
-  }, 1000); // Additional delay after load (2 seconds)
+          
+        }, 1000); // This should match the duration of the opacity transition
+        // Enable scrolling on the body
+        document.body.style.overflow = 'visible';
+        
+        const event = new Event('resize');
+        window.dispatchEvent(event);
+      startModelRotation();
+  }, 1000); // Additional delay after load (1 second)
+  
 };
 
