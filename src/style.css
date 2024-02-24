@@ -992,11 +992,19 @@ body {
   }
 }
 
-
+@media (max-width: 449px) {
+  article {
+    padding-bottom: 50px;
+  }
+}
 
 @media (min-width: 450px) {
   .project-img {
     height: auto;
+  }
+
+  article {
+    padding-bottom: 50px;
   }
 }
 
@@ -1009,6 +1017,10 @@ body {
     --fs-6: 15px;
     --fs-7: 15px;
     --fs-8: 12px;
+  }
+
+  article {
+    padding-bottom: 60px !important;
   }
 
   .sidebar,
@@ -1164,6 +1176,10 @@ body {
 }
 
 @media (min-width: 768px) {
+  article {
+    padding-bottom: 0px !important;
+  }
+
   .sidebar,
   article {
     width: 700px;
