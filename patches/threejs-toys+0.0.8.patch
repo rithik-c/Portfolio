@@ -1,0 +1,36 @@
+diff --git a/node_modules/threejs-toys/build/threejs-toys.module.js b/node_modules/threejs-toys/build/threejs-toys.module.js
+index 6e66efd..8dae177 100644
+--- a/node_modules/threejs-toys/build/threejs-toys.module.js
++++ b/node_modules/threejs-toys/build/threejs-toys.module.js
+@@ -462,8 +462,10 @@ function index$5(params) {
+     },
+     onPointerMove({ nPosition, delta }) {
+       hover = true;
+-      const x = 0.5 * nPosition.x * uRatio.value.x;
+-      const y = 0.5 * nPosition.y * uRatio.value.y;
++      const scrollAdjustment = window.scrollY / window.innerHeight * 0.8;
++      const x = (0.5 * nPosition.x) * uRatio.value.x;
++      const yOffset = 0.001;
++      const y = (((0.5 * nPosition.y) + scrollAdjustment + yOffset) * uRatio.value.y);
+       spline.points[0].set(x, y);
+       velocityTarget.x = Math.min(velocity.x + Math.abs(delta.x) / config.velocityTreshold, 1);
+       velocityTarget.y = Math.min(velocity.y + Math.abs(delta.y) / config.velocityTreshold, 1);
+diff --git a/node_modules/threejs-toys/src/cursors/neon/index.js b/node_modules/threejs-toys/src/cursors/neon/index.js
+index 93bf7da..539de9f 100644
+--- a/node_modules/threejs-toys/src/cursors/neon/index.js
++++ b/node_modules/threejs-toys/src/cursors/neon/index.js
+@@ -184,9 +184,11 @@ export default function (params) {
+     },
+     onPointerMove ({ nPosition, delta }) {
+       hover = true
+-      const x = (0.5 * nPosition.x) * uRatio.value.x
+-      const y = (0.5 * nPosition.y) * uRatio.value.y
+-      spline.points[0].set(x, y)
++      const scrollAdjustment = window.scrollY / window.innerHeight * 0.8; // Scale scroll to -1 to 1 range
++      const x = (0.5 * nPosition.x) * uRatio.value.x;
++      const yOffset = 0.001;
++      const y = (((0.5 * nPosition.y) + scrollAdjustment + yOffset) * uRatio.value.y);
++      spline.points[0].set(x, y);
+ 
+       velocityTarget.x = Math.min(velocity.x + Math.abs(delta.x) / config.velocityTreshold, 1)
+       velocityTarget.y = Math.min(velocity.y + Math.abs(delta.y) / config.velocityTreshold, 1)

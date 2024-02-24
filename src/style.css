@@ -75,6 +75,20 @@
   box-sizing: border-box;
 }
 
+#app {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+#app canvas:not(#pc-three-canvas) {
+  display: block;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+}
+
 a {
   text-decoration: none;
 }
@@ -127,12 +141,18 @@ body {
 
 .sidebar,
 article {
-  background: var(--eerie-black-2);
+  /* background: var(--eerie-black-2); */
   border: 1px solid var(--jet);
   border-radius: 20px;
   padding: 15px;
   box-shadow: var(--shadow-1);
   z-index: 1;
+  /* From https://css.glass */
+  background: rgba(32, 32, 34, 0.8);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .separator {

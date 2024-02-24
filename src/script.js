@@ -3,6 +3,21 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader.js";
 import GUI from "lil-gui";
+import { neonCursor } from 'threejs-toys'
+
+neonCursor({
+  el: document.getElementById('app'),
+  shaderPoints: 16,
+  curvePoints: 80,
+  curveLerp: 0.7,
+  radius1: 1,
+  radius2: 5,
+  velocityTreshold: 10,
+  sleepRadiusX: 100,
+  sleepRadiusY: 100,
+  sleepTimeCoefX: 0.0025,
+  sleepTimeCoefY: 0.001
+})
 
 // element toggle function
 const elementToggleFunc = function (elem) {
