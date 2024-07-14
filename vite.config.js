@@ -14,5 +14,12 @@ export default {
         outDir: '../dist',
         emptyOutDir: true,
         sourcemap: true
+    },
+    css: {
+        preprocessorOptions: {
+            scss: {
+                additionalData: `@import "./src/variables.scss";`
+            }
+        }
     }
 }
