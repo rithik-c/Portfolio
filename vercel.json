@@ -2,7 +2,11 @@
     "rewrites": [
       {
         "source": "/ily",
-        "destination": "/secret/index.html"
+        "destination": "/secret/flowers/index.html"
+      },
+      {
+        "source": "/valentine",
+        "destination": "/secret/valentine/index.html"
       }
     ]
   }
