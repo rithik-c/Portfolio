@@ -1,0 +1,4 @@
+node_modules/*
+test/*
+node_modules/@esbuild/darwin-x64/bin/*
+.DS_Store
