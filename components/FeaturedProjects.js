@@ -27,9 +27,9 @@ export default function FeaturedProjects({ projects }) {
           <SlideUpWhenVisible threshold={0.1}>
             <Stack spacing={1}>
             <Stack
-              isInline
-              justifyContent="space-between"
               alignItems="center"
+              justifyContent="space-between"
+              isInline
             >
                 <Heading
                   color="displayColor"
@@ -44,8 +44,8 @@ export default function FeaturedProjects({ projects }) {
                   >
                     <Text
                       display={{ base: 'block', md: 'none' }}
-                      fontSize={{ base: 'sm', md: 'xl' }}
                       color="button1"
+                      fontSize={{ base: 'sm', md: 'xl' }}
                       _hover={{ color: 'button2' }}
                     >
                       {' '}

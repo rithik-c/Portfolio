@@ -33,7 +33,7 @@ const CustomLink = (props) => {
   }
 
   return (
-    <Link href={href} isExternal color={color[colorMode]} {...props}>
+    <Link color={color[colorMode]} href={href} isExternal {...props}>
       {props.children}
     </Link>
   );

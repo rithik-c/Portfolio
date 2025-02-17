@@ -143,11 +143,11 @@ export default function AboutMe() {
                 src="https://svgsilh.com/svg/26432.svg"
               />
               <Image
-                src="https://i.imgur.com/jk8NmSx.jpeg"
-                alt="Abdul Rahman"
                 w={{ base: '300px', lg: '350px' }}
                 h={{ base: '300px', lg: '350px' }}
                 borderRadius="50%"
+                alt="Abdul Rahman"
+                src="https://i.imgur.com/jk8NmSx.jpeg"
                 style={{ objectFit: "cover" }}
               />
             </Box>
