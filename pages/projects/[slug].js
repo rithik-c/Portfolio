@@ -25,7 +25,7 @@ import { GithubBlog } from '@rena.to/github-blog'
 
 import { FaGithub, FaLink, FaPersonBooth, FaUser } from 'react-icons/fa'
 import NextSeoData from '../../components/NextSeoData'
-import useUtterances from '../../hook/useUtterances'
+// import useUtterances from '../../hook/useUtterances'
 import Image from 'next/image'
 
 import rehypePrism from 'rehype-prism-plus' // ✅ Correct syntax highlighting plugin
@@ -72,7 +72,7 @@ export default function Post({ metadata, publishedDate, source, toc }) {
     })
   }
 
-  const { isCommentsLoading } = useUtterances('comments', metadata.title)
+  // const { isCommentsLoading } = useUtterances('comments', metadata.title)
 
   return (
     <>
@@ -201,7 +201,8 @@ export default function Post({ metadata, publishedDate, source, toc }) {
           </Stack>
         </HStack>
 
-        <Stack w="100%" mt="36px" mb="15vh">
+        {/* Utterances Comments System */}
+        {/* <Stack w="100%" mt="36px" mb="15vh">
           {isCommentsLoading && (
             <Center flexDir="column" pt={8}>
               <Spinner w="56px" h="56px" color="#058d92" thickness="5px" />
@@ -213,7 +214,7 @@ export default function Post({ metadata, publishedDate, source, toc }) {
           <Stack opacity={isCommentsLoading ? 0 : 1}>
             <div id="comments" />
           </Stack>
-        </Stack>
+        </Stack> */}
       </Container>
     </>
   )
