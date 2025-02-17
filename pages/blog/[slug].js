@@ -35,7 +35,7 @@ export default function Post({ metadata, publishedDate, source, toc }) {
   const router = useRouter()
   const { slug } = router.query
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/views/${slug}`)
+    fetch(`/api/views/${slug}`)
       .then((res) => res.json())
       .then((json) => setViews(json.views))
   }, [slug])
