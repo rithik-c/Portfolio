@@ -124,7 +124,7 @@ export default function Introduction({ introduction }) {
         in={true}
       >
         <Stack isInline spacing={4}>
-          <Link href="https://github.com/rithik-c" rel="noreferrer" isExternal>
+          <Link href="https://github.com/rithik-c" isExternal rel="noreferrer">
             <Button
               pos="static"
               color="white"
@@ -135,7 +135,7 @@ export default function Introduction({ introduction }) {
               Github
             </Button>
           </Link>
-          <Link href="https://linkedin.com/in/rithik-c" rel="noreferrer" isExternal>
+          <Link href="https://linkedin.com/in/rithik-c" isExternal rel="noreferrer">
             <Button
               pos="static"
               color="white"
