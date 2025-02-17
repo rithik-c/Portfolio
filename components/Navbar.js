@@ -40,7 +40,7 @@ export default function Navbar({ enableTransition }) {
         <DrawerContent bgColor="secondary">
           <DrawerCloseButton />
           <DrawerHeader borderBottomWidth="1px">
-            <Bracket>&#123;</Bracket>A<Bracket>&#125;</Bracket>
+            <Bracket>&#123;</Bracket>RC<Bracket>&#125;</Bracket>
           </DrawerHeader>
 
           <DrawerBody>
@@ -55,11 +55,11 @@ export default function Navbar({ enableTransition }) {
                   Projects
                 </Button>
               </NextLink>
-              <NextLink passHref href="/blog">
+              {/* <NextLink passHref href="/blog">
                 <Button as="a" fontSize="16px" variant="ghost">
                   Blog
                 </Button>
-              </NextLink>
+              </NextLink> */}
               <NextLink passHref href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Button as="a" fontSize="16px" variant="ghost">
                   Resume
@@ -103,7 +103,7 @@ export default function Navbar({ enableTransition }) {
               fontWeight="bold"
               cursor="pointer"
             >
-              <Bracket>&#123;</Bracket>A<Bracket>&#125;</Bracket>
+              <Bracket>&#123;</Bracket>RC<Bracket>&#125;</Bracket>
             </Text>
           </NextLink>
           {isLargerThan768 ? (
@@ -118,11 +118,11 @@ export default function Navbar({ enableTransition }) {
                   Projects
                 </Button>
               </NextLink>
-              <NextLink passHref href="/blog">
+              {/* <NextLink passHref href="/blog">
                 <Button as="a" p="4" fontSize="16px" variant="ghost">
                   Blog
                 </Button>
-              </NextLink>
+              </NextLink> */}
               <NextLink passHref href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Button as="a" p="4" fontSize="16px" variant="ghost">
                   Resume

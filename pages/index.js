@@ -36,7 +36,7 @@ export default function Index({ introduction, projects, articles, contactMe }) {
           <Introduction introduction={introduction} />
           <AboutMe />
           <FeaturedProjects projects={projects} />
-          <LatestArticle articles={articles} />
+          {/* <LatestArticle articles={articles} /> */}
           <ContactMe contactMe={contactMe} />
         </Stack>
       </Container>
@@ -55,18 +55,18 @@ export async function getStaticProps() {
     order: 'fields.order',
   })
 
-  const blog = new GithubBlog({
-    repo: 'abdulrcs/abdulrahman.id',
-    token: process.env.GITHUB_TOKEN,
-  })
-  let data2 = await blog.getPosts({
-    query: {
-      author: 'abdulrcs',
-      type: 'post',
-      state: 'published',
-    },
-    pager: { limit: 10, offset: 0 },
-  })
+  // const blog = new GithubBlog({
+  //   repo: 'abdulrcs/abdulrahman.id',
+  //   token: process.env.GITHUB_TOKEN,
+  // })
+  // let data2 = await blog.getPosts({
+  //   query: {
+  //     author: 'abdulrcs',
+  //     type: 'post',
+  //     state: 'published',
+  //   },
+  //   pager: { limit: 10, offset: 0 },
+  // })
 
   let data3 = await client.getEntries({
     content_type: 'introduction',
@@ -83,14 +83,14 @@ export async function getStaticProps() {
   return {
     props: {
       projects: data.items,
-      articles: data2.edges
-        .sort(
-          (a, b) =>
-            Date.parse(b.post.frontmatter.date) -
-            Date.parse(a.post.frontmatter.date),
-        )
-        .map((edge) => edge.post)
-        .slice(0, 4),
+      // articles: data2.edges
+      //   .sort(
+      //     (a, b) =>
+      //       Date.parse(b.post.frontmatter.date) -
+      //       Date.parse(a.post.frontmatter.date),
+      //   )
+      //   .map((edge) => edge.post)
+      //   .slice(0, 4),
       introduction: data3.items,
       contactMe: data4.items,
     },

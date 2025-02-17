@@ -164,7 +164,7 @@ export default function Post({ metadata, publishedDate, source, toc }) {
           <Divider h="0.5px" my={4} bg="textSecondary" />
         </Stack>
 
-        <HStack alignItems="start" pt="23px" spacing="36px">
+        <HStack alignItems="start" pt="23px" spacing="36px" mb="15vh">
           <Stack w={{ base: '100%', md: '50rem' }}>
             <ProjectContainer>
               <MDXRemote {...source} components={MDXComponents} />

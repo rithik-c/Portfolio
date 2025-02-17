@@ -22,7 +22,9 @@ import {
   FaPython,
   FaReact,
   FaSass,
+  FaNodeJs,
 } from 'react-icons/fa'
+import { SiFirebase, SiDart, SiFlutter } from "react-icons/si";
 import { SiChakraui, SiNextdotjs } from 'react-icons/si'
 import useMediaQuery from '../hook/useMediaQuery'
 import Image from 'next/image'
@@ -56,12 +58,24 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
     } else if (tag == 'SQL') {
       values[0] = 'blue'
       values[1] = FaDatabase
+    } else if (tag == 'Flutter') {
+      values[0] = 'cyan'
+      values[1] = SiFlutter
+    } else if (tag == 'Dart') {
+      values[0] = 'blue'
+      values[1] = SiDart
     } else if (tag == 'Next.js') {
       values[0] = 'gray'
       values[1] = SiNextdotjs
+    } else if (tag == 'Firebase') {
+      values[0] = 'orange'
+      values[1] = SiFirebase
     } else if (tag == 'Chakra UI') {
       values[0] = 'teal'
       values[1] = SiChakraui
+    } else if (tag == 'Node.js') {
+      values[0] = 'green'
+      values[1] = FaNodeJs
     } else {
       values[0] = 'gray'
       values[1] = FaCode

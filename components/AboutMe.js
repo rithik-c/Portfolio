@@ -70,58 +70,69 @@ export default function AboutMe() {
               fontSize={{ base: '14px', md: '16px' }}
               whiteSpace="pre-line"
             >
-              Hey! I'm Abdul Rahman, I've been close to a computer since an
-              early age, and been passionate about it ever since. <br />
-              <br /> I really liked to build stuff using{' '}
+              Hey! I'm Rithik, I've spent the last decade turning ideas into 
+              software that makes an impact. From tinkering with my first 
+              scripts to leading full-scale projects, programming has shaped 
+              how I think and create.
+              <br/><br/>
+              I previously worked at{' '}
               <MoreInfo
-                content="I used to make games without code using RPG Maker VX, and build a simple website with blogspot back in primary school."
-                text="no-code tools"
+                content="SOTI - remote mobile and IoT device management solutions"
+                text="enterprise mobility management"
               />
-              back in 2010, and from that, I explored how to code myself,
-              fast-forward to today, I do programming in various languages and
-              technologies, and had the privilege to worked in a{' '}
+              and{' '}
               <MoreInfo
-                content={
-                  <Image
-                    w={306}
-                    h={102}
-                    alt="linkedin Qneksi"
-                    src="https://imagizer.imageshack.com/a/img923/541/alNCHs.png"
-                  />
-                }
-                text="Recruitment Company"
+                content="NCR - known for its digital banking and point-of-service retail software"
+                text="ecommerce software"
               />
-              and a
+              companies. Currently, I'm a Full-Stack Software Engineer at a recruitment and 
+              consulting agency based in Michigan, USA. I've also done{' '}
               <MoreInfo
                 content={
-                  <Image
-                    w={306}
-                    h={102}
-                    alt="linkedin Qasir"
-                    src="https://imagizer.imageshack.com/a/img922/6137/c0cugn.png"
-                  />
+                  <>
+                    Designed and developed the{' '}
+                    <a href="https://crowningconsulting.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'button1'}}>
+                      crowningconsulting.com
+                    </a>{' '}
+                    website, among other contract projects
+                  </>
                 }
-                text="SaaS Company"
+                text="freelance work"
               />
-              I'm interested in building something awesome with code and
-              automate tasks with code, currently focused on
+              and written multiple research papers on Three.js and other 3D web frameworks. 
+              <br/><br/>
+              Beyond work, I co-founded{' '}
               <MoreInfo
-                content="Building Web and Mobile Applications using Javascript Frameworks (React, React Native and Next.js)"
-                text="Web & Mobile Development,"
+                content={
+                  <>
+                    Check out our inaugural year's{' '}
+                    <a href="https://gryphhacks-2022.devpost.com" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'button1'}}>
+                      Devpost
+                    </a>{' '}
+                    page!
+                  </>
+                }
+                text="GryphHacks"
               />
+              , an international hackathon, 
+              raising $25K in funding and hosting 700 students from 30 countries for three 
+              consecutive years. I've also attended (and won) several hackathons—some of those{' '}
               <MoreInfo
-                content="I really like the idea of contributing new features to open source projects that can be useful to other people."
-                text="Open Source"
+                content={
+                  <>
+                    You can also check them out in detail on my {' '}
+                    <a href="https://devpost.com/rithik-c" target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline', color: 'button1'}}>
+                      Devpost
+                    </a>{' '}
+                    here!
+                  </>
+                }
+                text="projects"
               />
-              and
-              <MoreInfo
-                content="Competitive Programming helped me to sharpen my Algorithms and Problem Solving skills."
-                text="Competitive Programming"
-              />
-              <br />
-              <br />
-              When I'm not coding I play games with my friends, watch some show
-              on Netflix, or if the weather's good, play basketball! 🏀
+              are featured below. 
+              {/* <br/><br/>
+              Right now, I'm focused on full-stack software systems, expanding my cloud expertise, 
+              and deepening my knowledge of AI-driven programming. */}
             </Text>
           </Stack>
         </SlideUpWhenVisible>
@@ -146,8 +157,8 @@ export default function AboutMe() {
                 w={{ base: '300px', lg: '350px' }}
                 h={{ base: '300px', lg: '350px' }}
                 borderRadius="50%"
-                alt="Abdul Rahman"
-                src="https://i.imgur.com/jk8NmSx.jpeg"
+                alt="Rithik C"
+                src="pfp.jpg"
                 style={{ objectFit: "cover" }}
               />
             </Box>

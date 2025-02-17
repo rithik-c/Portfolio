@@ -35,7 +35,7 @@ const NextSeoData = ({ slug, metadata, publishedDate }) => {
         datePublished={publishedDate}
         description={metadata.frontmatter.summary}
         images={[metadata.frontmatter.image]}
-        publisherLogo="https://imagizer.imageshack.com/a/img923/7612/A5tDeP.png"
+        publisherLogo="https://imagizer.imageshack.com/a/img923/7612/A5tDeP.png" // FIXME
         publisherName="Rithik C"
         title={metadata.title}
         url={`https://rithik.live/blog/${slug}`}

@@ -62,7 +62,7 @@ export default function Introduction({ introduction }) {
           lineHeight={'95%'}
           letterSpacing={{ sm: '-1.2px', md: '-1.8px' }}
         >
-          Abdul Rahman.
+          Rithik Choudhary.
         </Heading>
       </SlideFade>
 
@@ -81,10 +81,10 @@ export default function Introduction({ introduction }) {
           <Box as="span" color="displayColor">
             Software Engineer.
           </Box>{' '}
-          A self-taught developer{' '}
+          Passionate about building scalable{' '}
           {isLargerThan800
-            ? 'with an\ninterest in Computer Science.'
-            : 'with an interest in Computer Science.'}
+            ? '\nand efficient software solutions.'
+            : 'and efficient software solutions.'}
         </Heading>
       </SlideFade>
 
@@ -124,7 +124,7 @@ export default function Introduction({ introduction }) {
         in={true}
       >
         <Stack isInline spacing={4}>
-          <Link href="https://github.com/abdulrcs" isExternal>
+          <Link href="https://github.com/rithik-c" rel="noreferrer" isExternal>
             <Button
               pos="static"
               color="white"
@@ -135,7 +135,7 @@ export default function Introduction({ introduction }) {
               Github
             </Button>
           </Link>
-          <Link href="https://linkedin.com/in/abdulrcs" isExternal>
+          <Link href="https://linkedin.com/in/rithik-c" rel="noreferrer" isExternal>
             <Button
               pos="static"
               color="white"
@@ -146,7 +146,7 @@ export default function Introduction({ introduction }) {
               LinkedIn
             </Button>
           </Link>
-          <Link href="mailto:abdulrcs1@gmail.com" isExternal>
+          <Link href="mailto:rithik.chdry@gmail.com" isExternal>
             <Button
               pos="static"
               color="white"

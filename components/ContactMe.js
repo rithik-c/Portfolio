@@ -16,7 +16,7 @@ export default function ContactMe({ contactMe }) {
     <Stack alignItems="center" justifyContent="center" w="100%" spacing={10}>
       <SlideUpWhenVisible>
         <Heading fontSize={{ base: '4xl', md: '5xl' }} textAlign="center">
-          Keep In Touch.
+          Let's Connect.
         </Heading>
       </SlideUpWhenVisible>
 
@@ -39,7 +39,7 @@ export default function ContactMe({ contactMe }) {
       <SlideUpWhenVisible>
         <Stack isInline spacing={4}>
           <Link
-            href="https://linkedin.com/in/abdulrcs"
+            href="https://linkedin.com/in/rithik-c"
             isExternal
             onClick={() => handleClick('contact_linkedin')}
           >
@@ -53,7 +53,7 @@ export default function ContactMe({ contactMe }) {
             </Button>
           </Link>
           <Link
-            href="mailto:abdulrcs1@gmail.com"
+            href="mailto:rithik.chdry@gmail.com"
             isExternal
             onClick={() => handleClick('contact_email')}
           >
@@ -68,7 +68,7 @@ export default function ContactMe({ contactMe }) {
             </Button>
           </Link>
           <Link
-            href="https://drive.google.com/file/d/1IvhcdThnfMAcPEHy6Yvq4o8vSaIi_ArV/view?usp=sharing"
+            href="resume.pdf"
             isExternal
             onClick={() => handleClick('contact_resume')}
           >
