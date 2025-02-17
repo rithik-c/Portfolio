@@ -23,9 +23,11 @@ import {
   FaReact,
   FaSass,
   FaNodeJs,
+  FaPhp,
+  FaAngular
 } from 'react-icons/fa'
-import { SiFirebase, SiDart, SiFlutter } from "react-icons/si";
-import { SiChakraui, SiNextdotjs } from 'react-icons/si'
+import { SiFirebase, SiDart, SiFlutter, SiChakraui, SiNextdotjs } from "react-icons/si";
+import { DiJqueryLogo } from "react-icons/di";
 import useMediaQuery from '../hook/useMediaQuery'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -40,6 +42,9 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
     } else if (tag == 'Python') {
       values[0] = 'orange'
       values[1] = FaPython
+    } else if (tag == 'PHP') {
+      values[0] = 'orange'
+      values[1] = FaPhp
     } else if (tag == 'Javascript') {
       values[0] = 'yellow'
       values[1] = FaJs
@@ -52,9 +57,15 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
     } else if (tag == 'Laravel') {
       values[0] = 'red'
       values[1] = FaLaravel
+    } else if (tag == 'Angular') {
+      values[0] = 'red'
+      values[1] = FaAngular
     } else if (tag == 'Bootstrap') {
       values[0] = 'purple'
       values[1] = FaBootstrap
+    } else if (tag == 'JQuery') {
+      values[0] = 'purple'
+      values[1] = DiJqueryLogo
     } else if (tag == 'SQL') {
       values[0] = 'blue'
       values[1] = FaDatabase

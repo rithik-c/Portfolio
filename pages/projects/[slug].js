@@ -24,6 +24,7 @@ import ProjectContainer from '../../components/ProjectContainer'
 import { GithubBlog } from '@rena.to/github-blog'
 
 import { FaGithub, FaLink, FaPersonBooth, FaUser } from 'react-icons/fa'
+import { SiDevpost } from "react-icons/si";
 import NextSeoData from '../../components/NextSeoData'
 // import useUtterances from '../../hook/useUtterances'
 import Image from 'next/image'
@@ -148,6 +149,23 @@ export default function Post({ metadata, publishedDate, source, toc }) {
                       onClick={() => handleClick(`${metadata.title}_livesite`)}
                     >
                       Live Site
+                    </Link>
+                  </HStack>
+                </>
+              )}
+
+              {metadata.frontmatter.devpostLink && (
+                <>
+                  <Text>-</Text>
+                  <HStack>
+                    <SiDevpost fontSize="18px" />
+                    <Link
+                      fontSize={['xs', 'xs', 'sm', 'sm']}
+                      href={metadata.frontmatter.devpostLink}
+                      isExternal
+                      onClick={() => handleClick(`${metadata.title}_devpost`)}
+                    >
+                      Devpost
                     </Link>
                   </HStack>
                 </>

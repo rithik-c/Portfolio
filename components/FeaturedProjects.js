@@ -80,7 +80,7 @@ export default function FeaturedProjects({ projects }) {
               title={projects[0].fields.title}
             />
           </SlideUpWhenVisible>
-          {/* <SlideUpWhenVisible>
+          <SlideUpWhenVisible>
             <Box mt={{ md: '-50%' }}>
               <Cards
                 slug={projects[1].fields.slug}
@@ -99,7 +99,7 @@ export default function FeaturedProjects({ projects }) {
               tag={projects[2].fields.tags}
               title={projects[2].fields.title}
             />
-          </SlideUpWhenVisible> */}
+          </SlideUpWhenVisible>
         </SimpleGrid>
       </Stack>
     </>
