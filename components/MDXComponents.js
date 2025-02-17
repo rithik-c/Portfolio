@@ -10,27 +10,34 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import NextLink from 'next/link'
+import React from 'react'
 
 const CustomLink = (props) => {
-  const { colorMode } = useColorMode()
+  const { colorMode } = useColorMode();
   const color = {
     light: 'blue.500',
     dark: 'blue.500',
-  }
+  };
 
-  const href = props.href
-  const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'))
+  const href = props.href;
+  const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'));
 
   if (isInternalLink) {
     return (
-      <NextLink passHref href={href}>
-        <Link color={color[colorMode]} {...props} />
+      <NextLink href={href} passHref>
+        <Text as="span" color={color[colorMode]} textDecoration="underline">
+          {props.children}
+        </Text>
       </NextLink>
-    )
+    );
   }
 
-  return <Link color={color[colorMode]} isExternal {...props} />
-}
+  return (
+    <Link href={href} color={color[colorMode]} isExternal {...props}>
+      {props.children}
+    </Link>
+  );
+};
 
 const DocsHeading = (props) => (
   <HStack
@@ -87,6 +94,7 @@ const Hr = () => {
 }
 
 const MDXComponents = {
+  wrapper: ({ children }) => <Box>{children}</Box>,
   h1: (props) => (
     <Heading as="h1" my={4} color="displayColor" size="xl" {...props} />
   ),
@@ -135,7 +143,15 @@ const MDXComponents = {
       {...props}
     />
   ),
-  img: (props) => <Image width={1366} height={768} {...props} alt="" />,
+  img: (props) => (
+    <Image
+      width={1366}
+      height={768}
+      style={{ objectFit: "cover" }} // ✅ Corrected prop
+      {...props}
+      alt=""
+    />
+  ),   
   inlineCode: (props) => (
     <Code mt={-10} fontSize="0.84em" colorScheme="blue" {...props} />
   ),
@@ -145,7 +161,22 @@ const MDXComponents = {
   p: (props) => <Text as="p" mt={0} lineHeight="tall" {...props} />,
   ul: (props) => <Box as="ul" ml={2} pt={2} pl="1.625em" {...props} />,
   ol: (props) => <Box as="ol" ml={2} pt={2} pl="1.625em" {...props} />,
-  li: (props) => <Box as="li" pb={1} {...props} />,
+  li: (props) => {
+    const childrenArray = React.Children.toArray(props.children);
+    const containsLink = childrenArray.some(
+      (child) => React.isValidElement(child) && child.type === CustomLink
+    );
+  
+    if (containsLink) {
+      return (
+        <Box as="li" pb={1} display="inline-block" {...props}>
+          {props.children}
+        </Box>
+      );
+    }
+  
+    return <Box as="li" pb={1} {...props} />;
+  },  
 }
 
 export { CustomLink }

@@ -18,36 +18,15 @@ export default function Index({ posts }) {
   return (
     <Container>
       <Head>
-        <title>Blog - Abdul Rahman</title>
-        <meta content="Blog - Abdul Rahman" name="title" />
-        <meta
-          content="Writings on programming, tutorials, and my experiences."
-          name="description"
-        />
+        <title>Blog - Rithik C</title>
+        <meta content="Blog - Rithik C" name="title" />
+        <meta content="Writings on programming, life, and my experiences." name="description"/>
 
         <meta content="website" property="og:type" />
-        <meta content="https://abdulrahman.id/blog" property="og:url" />
-        <meta content="Blog - Abdul Rahman" property="og:title" />
-        <meta
-          content="Writings on programming, tutorials, and my experiences."
-          property="og:description"
-        />
-        <meta
-          content="https://imagizer.imageshack.com/a/img924/6408/mSltwm.png"
-          property="og:image"
-        />
-
-        <meta content="summary_large_image" property="twitter:card" />
-        <meta content="https://abdulrahman.id/" property="twitter:url" />
-        <meta content="Blog - Abdul Rahman" property="twitter:title" />
-        <meta
-          content="Writings on programming, tutorials, and my experiences."
-          property="twitter:description"
-        />
-        <meta
-          content="https://imagizer.imageshack.com/a/img923/7612/A5tDeP.png"
-          property="twitter:image"
-        />
+        <meta content="https://rithik.live/blog" property="og:url" />
+        <meta content="Blog - Rithik C" property="og:title" />
+        <meta content="Writings on programming, life, and my experiences." property="og:description" />
+        {/* <meta content="https://rithik.live/images/blog.jpg" property="og:image" /> */}
       </Head>
       <Stack
         as="main"

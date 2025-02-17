@@ -14,43 +14,15 @@ export default function Index({ introduction, projects, articles, contactMe }) {
     <>
       <Container enableTransition={true}>
         <Head>
-          <title>Abdul Rahman - Software Engineer</title>
-          <meta content="Abdul Rahman - Software Engineer" name="title" />
-          <meta content="abdulrcs, abdulrcs website" name="keywords" />
-          <meta
-            content="Software Engineer based in Indonesia, an undergraduate student at Universitas Negeri Surabaya."
-            name="description"
-          />
+        <title>Rithik C - Software Engineer</title>
+          <meta content="Rithik C - Software Engineer" name="title" />
+          <meta content="Software Engineer based in Toronto, passionate about full-stack development." name="description"/>
 
           <meta content="website" property="og:type" />
-          <meta content="https://abdulrahman.id" property="og:url" />
-          <meta
-            content="Abdul Rahman - Software Engineer"
-            property="og:title"
-          />
-          <meta
-            content="Software Engineer based in Indonesia, an undergraduate student at Universitas Negeri Surabaya."
-            property="og:description"
-          />
-          <meta
-            content="https://imagizer.imageshack.com/a/img922/7423/0P3Xty.png"
-            property="og:image"
-          />
-
-          <meta content="summary_large_image" property="twitter:card" />
-          <meta content="https://abdulrahman.id/" property="twitter:url" />
-          <meta
-            content="Abdul Rahman - Software Engineer"
-            property="twitter:title"
-          />
-          <meta
-            content="Software Engineer based in Indonesia, an undergraduate student at Universitas Negeri Surabaya."
-            property="twitter:description"
-          />
-          <meta
-            content="https://imagizer.imageshack.com/a/img922/7423/0P3Xty.png"
-            property="twitter:image"
-          />
+          <meta content="https://rithik.live" property="og:url" />
+          <meta content="Rithik C - Software Engineer" property="og:title" />
+          <meta content="Software Engineer based in Toronto, passionate about full-stack development." property="og:description" />
+          {/* <meta content="https://rithik.live/images/profile.jpg" property="og:image" /> */}
         </Head>
 
         <Stack

@@ -86,7 +86,6 @@ export default function Post({ metadata, publishedDate, source, toc }) {
             <Image
               width={1100}
               height={500}
-              objectFit="cover"
               style={{
                 borderRadius: '10px',
                 objectFit: 'cover',

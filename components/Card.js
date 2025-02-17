@@ -26,8 +26,10 @@ import {
 import { SiChakraui, SiNextdotjs } from 'react-icons/si'
 import useMediaQuery from '../hook/useMediaQuery'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
 export default function Cards({ imageURL, title, slug, desc, tag }) {
+  const router = useRouter()
   const getTag = (tag) => {
     let values = []
     if (tag == 'React') {
@@ -105,7 +107,6 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
               minH="270px"
               borderRadius="10px 10px 0px 0px"
               transition="0.3s"
-              objectFit="cover"
               style={{
                 borderRadius: '10px 10px 0px 0px',
                 objectFit: 'cover',

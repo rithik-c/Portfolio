@@ -60,6 +60,11 @@ export default function Navbar({ enableTransition }) {
                   Blog
                 </Button>
               </NextLink>
+              <NextLink passHref href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <Button as="a" fontSize="16px" variant="ghost">
+                  Resume
+                </Button>
+              </NextLink>
             </Stack>
           </DrawerBody>
         </DrawerContent>
@@ -78,7 +83,6 @@ export default function Navbar({ enableTransition }) {
             : { enter: { duration: 0, delay: 0 } }
         }
         in={true}
-        reverse
       >
         <Flex
           as="nav"
@@ -118,7 +122,12 @@ export default function Navbar({ enableTransition }) {
                 <Button as="a" p="4" fontSize="16px" variant="ghost">
                   Blog
                 </Button>
-              </NextLink>{' '}
+              </NextLink>
+              <NextLink passHref href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+                <Button as="a" p="4" fontSize="16px" variant="ghost">
+                  Resume
+                </Button>
+              </NextLink>
             </Box>
           ) : (
             <Icon as={AiOutlineMenu} w={7} h={7} onClick={onOpen} />

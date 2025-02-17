@@ -145,7 +145,7 @@ export default function AboutMe() {
               <Image
                 w={{ base: '300px', lg: '350px' }}
                 h={{ base: '300px', lg: '350px' }}
-                objectFit="cover"
+                style={{ objectFit: "cover" }}
                 borderRadius="50%"
                 alt="Abdul Rahman"
                 src="https://i.imgur.com/jk8NmSx.jpeg"

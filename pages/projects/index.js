@@ -18,45 +18,15 @@ export default function Projects({ projects }) {
     <>
       <Container>
         <Head>
-          <title>Abdul Rahman - Software Engineer</title>
-          <meta content="Abdul Rahman - Software Engineer" name="title" />
-          <meta
-            content="Software Engineer based in Indonesia, an undergraduate student at Universitas Negeri Surabaya."
-            name="description"
-          />
+          <title>Projects - Rithik C</title>
+          <meta content="Projects - Rithik C" name="title" />
+          <meta content="An archive of everything of value that I've ever coded." name="description"/>
 
           <meta content="website" property="og:type" />
-          <meta content="https://abdulrahman.id/projects" property="og:url" />
-          <meta
-            content="Abdul Rahman - Software Engineer"
-            property="og:title"
-          />
-          <meta
-            content="Software Engineer based in Indonesia, an undergraduate student at Universitas Negeri Surabaya."
-            property="og:description"
-          />
-          <meta
-            content="https://imagizer.imageshack.com/a/img923/3917/IFUVhm.png"
-            property="og:image"
-          />
-
-          <meta content="summary_large_image" property="twitter:card" />
-          <meta
-            content="https://abdulrahman.id/projects"
-            property="twitter:url"
-          />
-          <meta
-            content="Abdul Rahman - Software Engineer"
-            property="twitter:title"
-          />
-          <meta
-            content="Software Engineer based in Indonesia, an undergraduate student at Universitas Negeri Surabaya."
-            property="twitter:description"
-          />
-          <meta
-            content="https://imagizer.imageshack.com/a/img923/3917/IFUVhm.png"
-            property="twitter:image"
-          />
+          <meta content="https://rithik.live/projects" property="og:url" />
+          <meta content="Projects - Rithik C" property="og:title" />
+          <meta content="An archive of everything of value that I've ever coded." property="og:description" />
+          {/* <meta content="https://rithik.live/images/projects.jpg" property="og:image" /> */}
         </Head>
         <Stack
           justifyContent="center"
@@ -111,12 +81,12 @@ export default function Projects({ projects }) {
 
 export async function getStaticProps() {
   const blog = new GithubBlog({
-    repo: 'abdulrcs/abdulrahman.id',
+    repo: 'rithik-c/Portfolio',
     token: process.env.GITHUB_TOKEN,
   })
   const projects = await blog.getPosts({
     query: {
-      author: 'abdulrcs',
+      author: 'rithik-c',
       type: 'project',
       state: 'published',
     },
