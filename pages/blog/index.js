@@ -46,12 +46,7 @@ export default function Index({ posts }) {
           <InputRightElement pointerEvents="none">
             <FaSearch />
           </InputRightElement>
-          <Input
-            placeholder="Search articles"
-            type="text"
-            value={query}
-            onChange={handleChange}
-          />
+          <Input type="text" placeholder="Search articles" value={query} onChange={handleChange} />
         </InputGroup>
         <Divider />
         <Stack spacing={5}>

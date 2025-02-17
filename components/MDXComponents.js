@@ -33,7 +33,7 @@ const CustomLink = (props) => {
   }
 
   return (
-    <Link href={href} color={color[colorMode]} isExternal {...props}>
+    <Link href={href} isExternal color={color[colorMode]} {...props}>
       {props.children}
     </Link>
   );
@@ -169,7 +169,7 @@ const MDXComponents = {
   
     if (containsLink) {
       return (
-        <Box as="li" pb={1} display="inline-block" {...props}>
+        <Box as="li" display="inline-block" pb={1} {...props}>
           {props.children}
         </Box>
       );

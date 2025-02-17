@@ -46,12 +46,7 @@ export default function Projects({ projects }) {
               <InputRightElement pointerEvents="none">
                 <FaSearch />
               </InputRightElement>
-              <Input
-                placeholder="Search projects"
-                type="text"
-                value={query}
-                onChange={handleChange}
-              />
+              <Input type="text" placeholder="Search projects" value={query} onChange={handleChange}/>
             </InputGroup>
             <Divider />
           </Stack>

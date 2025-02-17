@@ -22,15 +22,15 @@ export default function FeaturedProjects({ projects }) {
 
   return (
     <>
-      <Stack spacing={8} w="full">
+      <Stack w="full" spacing={8}>
         <SimpleGrid columns={{ sm: 1, md: 2 }} spacing={16}>
           <SlideUpWhenVisible threshold={0.1}>
             <Stack spacing={1}>
-              <Stack
-                isInline
-                alignItems="center"
-                justifyContent="space-between"
-              >
+            <Stack
+              isInline
+              justifyContent="space-between"
+              alignItems="center"
+            >
                 <Heading
                   color="displayColor"
                   fontFamily="Ubuntu"
@@ -43,10 +43,10 @@ export default function FeaturedProjects({ projects }) {
                     onClick={() => handleClick('featuredprojects_explore more')}
                   >
                     <Text
-                      _hover={{ color: 'button2' }}
-                      color="button1"
                       display={{ base: 'block', md: 'none' }}
                       fontSize={{ base: 'sm', md: 'xl' }}
+                      color="button1"
+                      _hover={{ color: 'button2' }}
                     >
                       {' '}
                       Explore more &rarr;
