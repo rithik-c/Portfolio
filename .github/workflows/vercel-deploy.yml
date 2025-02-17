@@ -1,0 +1,26 @@
+name: Deploy to Vercel on Issue Update
+
+on:
+  issues:
+    types: [opened, edited]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if the issue has the "state:published" label
+        id: check_label
+        run: |
+          labels=$(jq -r '.issue.labels[].name' "$GITHUB_EVENT_PATH")
+          if echo "$labels" | grep -q "state:published"; then
+            echo "Triggering deployment..."
+            echo "::set-output name=deploy::true"
+          else
+            echo "No matching label found, skipping deployment."
+            echo "::set-output name=deploy::false"
+          fi
+
+      - name: Deploy to Vercel
+        if: steps.check_label.outputs.deploy == 'true'
+        run: |
+          curl -X POST "https://api.vercel.com/v1/integrations/deploy/prj_1u6fIKzJ3Nozvn6weSUA4L1MA0XZ/qiLeZYNxdp"

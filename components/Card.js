@@ -27,7 +27,7 @@ import {
   FaAngular
 } from 'react-icons/fa'
 import { SiFirebase, SiDart, SiFlutter, SiChakraui, SiNextdotjs } from "react-icons/si";
-import { DiJqueryLogo } from "react-icons/di";
+import { DiJqueryLogo, DiRedis } from "react-icons/di";
 import useMediaQuery from '../hook/useMediaQuery'
 import Image from 'next/image'
 import { useRouter } from 'next/router'
@@ -60,6 +60,9 @@ export default function Cards({ imageURL, title, slug, desc, tag }) {
     } else if (tag == 'Angular') {
       values[0] = 'red'
       values[1] = FaAngular
+    } else if (tag == 'Redis') {
+      values[0] = 'red'
+      values[1] = DiRedis
     } else if (tag == 'Bootstrap') {
       values[0] = 'purple'
       values[1] = FaBootstrap
